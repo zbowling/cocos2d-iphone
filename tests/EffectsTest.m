@@ -407,7 +407,7 @@ Class restartAction()
 
 -(void)checkAnim:(ccTime)t
 {
-	CCNode *s2 = [self getChildByTag:kTagBackground];
+	CCNode *s2 = [self childByTag:kTagBackground];
 	if ( [s2 numberOfRunningActions] == 0 && s2.grid != nil )
 		s2.grid = nil;
 }

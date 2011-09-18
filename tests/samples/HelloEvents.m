@@ -97,7 +97,7 @@ enum {
 		// The touches are always in "portrait" coordinates. You need to convert them to your current orientation
 		CGPoint convertedPoint = [[CCDirector sharedDirector] convertToGL:location];
 		
-		CCNode *sprite = [self getChildByTag:kTagSprite];
+		CCNode *sprite = [self childByTag:kTagSprite];
 		
 		// we stop the all running actions
 		[sprite stopAllActions];
@@ -111,7 +111,7 @@ enum {
 // This callback will be called because 'isAccelerometerEnabled' is YES.
 - (void)accelerometer:(UIAccelerometer*)accelerometer didAccelerate:(UIAcceleration*)acceleration
 {	
-	CCNode *sprite = [self getChildByTag:kTagSprite];
+	CCNode *sprite = [self childByTag:kTagSprite];
 
 	// Convert the coordinates to 'landscape' coords
 	// since they are always in 'portrait' coordinates

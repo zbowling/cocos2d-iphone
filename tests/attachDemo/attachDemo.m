@@ -74,7 +74,7 @@ enum {
 	CGPoint location = [touch locationInView: [touch view]];
 	CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL:location];
 	
-	CCNode *s = [self getChildByTag:kTagSprite];
+	CCNode *s = [self childByTag:kTagSprite];
 	[s stopAllActions];
 	[s runAction: [CCMoveTo actionWithDuration:1 position:ccp(convertedLocation.x, convertedLocation.y)]];
 	float o = convertedLocation.x - [s position].x;

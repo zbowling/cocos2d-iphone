@@ -4043,7 +4043,7 @@
 		505228E411B3DC410061670F /* sine440.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sine440.wav; sourceTree = "<group>"; };
 		505228E511B3DC410061670F /* sixteensamples.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sixteensamples.wav; sourceTree = "<group>"; };
 		5052293C11B3DCD80061670F /* CocosDenshion - Fade To Grey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CocosDenshion - Fade To Grey.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5052296E11B3DCE90061670F /* CocosDenshion - FancyRat Metering Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CocosDenshion - FancyRat Metering Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5052296E11B3DCE90061670F /* CocosDenshion FancyRat Metering Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CocosDenshion FancyRat Metering Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5052297411B3DDBE0061670F /* AudioVisualization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioVisualization.h; sourceTree = "<group>"; };
 		5052297511B3DDBE0061670F /* AudioVisualization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioVisualization.m; sourceTree = "<group>"; };
 		5052297811B3DDBE0061670F /* DebugAudioVis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugAudioVis.h; sourceTree = "<group>"; };
@@ -5806,7 +5806,7 @@
 				505224F911B3D4700061670F /* CocosDenshion - Tom The Turret.app */,
 				505228BA11B3DBB90061670F /* CocosDenshion - Drum Pad.app */,
 				5052293C11B3DCD80061670F /* CocosDenshion - Fade To Grey.app */,
-				5052296E11B3DCE90061670F /* CocosDenshion - FancyRat Metering Demo.app */,
+				5052296E11B3DCE90061670F /* CocosDenshion FancyRat Metering Demo.app */,
 				504E17DC11C4C7E100E19835 /* EAGLViewTest.app */,
 				50CBA48711CBD6FB007B009D /* Bug886.app */,
 				50E77D1211D4C926009CA2C2 /* HiResTest.app */,
@@ -6115,8 +6115,8 @@
 		501CCFB70E99659400B86F68 /* ImageSupport */ = {
 			isa = PBXGroup;
 			children = (
-				501CCFAB0E99657C00B86F68 /* TGAlib.m */,
 				501CCFAC0E99657C00B86F68 /* TGAlib.h */,
+				501CCFAB0E99657C00B86F68 /* TGAlib.m */,
 			);
 			name = ImageSupport;
 			sourceTree = "<group>";
@@ -8313,7 +8313,7 @@
 			);
 			name = "CocosDenshion - FancyRat Metering";
 			productName = "CocosDenshion - Tom The Turret";
-			productReference = 5052296E11B3DCE90061670F /* CocosDenshion - FancyRat Metering Demo.app */;
+			productReference = 5052296E11B3DCE90061670F /* CocosDenshion FancyRat Metering Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		505461DE10616AE100AB7C52 /* FontLabel */ = {
@@ -14028,13 +14028,14 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
 				INFOPLIST_FILE = CocosDenshion/TestsAndDemos/FancyRatMeteringDemo/Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
 					"-framework",
 					UIKit,
 				);
-				PRODUCT_NAME = "CocosDenshion - FancyRat Metering Demo";
+				PRODUCT_NAME = "CocosDenshion FancyRat Metering Demo";
 			};
 			name = Debug;
 		};
@@ -14049,13 +14050,14 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
 				INFOPLIST_FILE = CocosDenshion/TestsAndDemos/FancyRatMeteringDemo/Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
 					"-framework",
 					UIKit,
 				);
-				PRODUCT_NAME = "CocosDenshion - FancyRat Metering Demo";
+				PRODUCT_NAME = "CocosDenshion FancyRat Metering Demo";
 				ZERO_LINK = NO;
 			};
 			name = Release;

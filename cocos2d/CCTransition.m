@@ -798,7 +798,7 @@ const uint32_t kSceneFade = 0xFADEFADE;
 	[self addChild: l z:2 tag:kSceneFade];
 	
 	
-	CCNode *f = [self getChildByTag:kSceneFade];
+	CCNode *f = [self childByTag:kSceneFade];
 	
 	CCActionInterval *a = [CCSequence actions:
 						   [CCFadeIn actionWithDuration:duration_/2],

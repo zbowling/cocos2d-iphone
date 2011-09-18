@@ -245,7 +245,7 @@ Class restartAction()
 -(void) unpause:(ccTime)dt
 {
 	[self unschedule:_cmd];
-	CCNode *node = [self getChildByTag:kTagGrossini];
+	CCNode *node = [self childByTag:kTagGrossini];
 	[[CCActionManager sharedManager] resumeTarget:node];
 }
 
@@ -289,7 +289,7 @@ Class restartAction()
 
 -(void) stopAction:(id)sender
 {
-	id sprite = [self getChildByTag:kTagGrossini];
+	id sprite = [self childByTag:kTagGrossini];
 	[sprite stopActionByTag:kTagSequence];
 }
 
@@ -342,7 +342,7 @@ Class restartAction()
 {
 	[self unschedule:_cmd];
 	
-	id grossini = [self getChildByTag:kTagGrossini];
+	id grossini = [self childByTag:kTagGrossini];
 	[[CCActionManager sharedManager] resumeTarget:grossini];
 }
 @end

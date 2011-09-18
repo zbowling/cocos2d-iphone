@@ -219,7 +219,7 @@ Class restartAction()
 
 -(void) delay2:(ccTime) dt
 {
-	id node = [self getChildByTag:2];
+	id node = [self childByTag:2];
 	id action1 = [CCRotateBy actionWithDuration:1 angle:360];
 	[node runAction:action1];
 }
@@ -273,8 +273,8 @@ Class restartAction()
 
 -(void) addAndRemove:(ccTime) dt
 {
-	CCNode *sp1 = [self getChildByTag:kTagSprite1];
-	CCNode *sp2 = [self getChildByTag:kTagSprite2];
+	CCNode *sp1 = [self childByTag:kTagSprite1];
+	CCNode *sp2 = [self childByTag:kTagSprite2];
 
 	[sp1 retain];
 	[sp2 retain];
@@ -342,8 +342,8 @@ Class restartAction()
 
 -(void) addAndRemove:(ccTime) dt
 {
-	CCNode *sp1 = [self getChildByTag:kTagSprite1];
-	CCNode *sp2 = [self getChildByTag:kTagSprite2];
+	CCNode *sp1 = [self childByTag:kTagSprite1];
+	CCNode *sp2 = [self childByTag:kTagSprite2];
 	
 	[sp1 retain];
 	[sp2 retain];
@@ -466,7 +466,7 @@ Class restartAction()
 - (void) shouldNotLeak:(ccTime)dt
 {	
 	[self unschedule:_cmd];
-	id sublayer = [self getChildByTag:kTagSprite1];
+	id sublayer = [self childByTag:kTagSprite1];
 	[sublayer removeAllChildrenWithCleanup:YES];
 }
 
@@ -706,11 +706,11 @@ Class restartAction()
 	
 	z += dt * 100;
 	
-	sprite = [self getChildByTag:20];
+	sprite = [self childByTag:20];
 	cam = [sprite camera];
 	[cam setEyeX:0 eyeY:0 eyeZ:z];
 	
-	sprite = [self getChildByTag:40];
+	sprite = [self childByTag:40];
 	cam = [sprite camera];
 	[cam setEyeX:0 eyeY:0 eyeZ:z];	
 }
@@ -872,7 +872,7 @@ Class restartAction()
 		location = [[CCDirector sharedDirector] convertToGL: location];
 
 		for( int i=0; i<3; i++) {
-			CCNode *node = [self getChildByTag:100+i];
+			CCNode *node = [self childByTag:100+i];
 			
 			CGPoint p1, p2;
 			

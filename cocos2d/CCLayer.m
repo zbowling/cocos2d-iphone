@@ -289,7 +289,8 @@
 
 - (id) initWithColor:(ccColor4B)color width:(GLfloat)w  height:(GLfloat) h
 {
-	if( (self=[super init]) ) {
+    self = [super init];
+	if(self) {
 		
 		// default blend function
 		blendFunc_ = (ccBlendFunc) { CC_BLEND_SRC, CC_BLEND_DST };

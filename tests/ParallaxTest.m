@@ -290,7 +290,7 @@ Class restartAction()
 
 -(BOOL) ccMouseDragged:(NSEvent *)event
 {
-	CCNode *node = [self getChildByTag:kTagNode];
+	CCNode *node = [self childByTag:kTagNode];
 	CGPoint currentPos = [node position];
 	[node setPosition: ccpAdd(currentPos, CGPointMake( event.deltaX, -event.deltaY) )];
 	

@@ -37,7 +37,7 @@ eachShape(void *ptr, void* unused)
 {
 	int posx, posy;
 
-	CCSpriteBatchNode *batch = (CCSpriteBatchNode*) [self getChildByTag:kTagBatchNode];
+	CCSpriteBatchNode *batch = (CCSpriteBatchNode*) [self childByTag:kTagBatchNode];
 	
 	posx = (CCRANDOM_0_1() * 200);
 	posy = (CCRANDOM_0_1() * 200);

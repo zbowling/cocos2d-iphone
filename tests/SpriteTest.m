@@ -295,7 +295,7 @@ Class restartAction()
 
 -(void) addNewSpriteWithCoords:(CGPoint)p
 {
-	CCSpriteBatchNode *batch = (CCSpriteBatchNode*) [self getChildByTag:kTagSpriteBatchNode];
+	CCSpriteBatchNode *batch = (CCSpriteBatchNode*) [self childByTag:kTagSpriteBatchNode];
 	
 	int idx = CCRANDOM_0_1() * 1400 / 100;
 	int x = (idx%5) * 85;
@@ -427,7 +427,7 @@ Class restartAction()
 //   color array and vertex array should be reindexed
 -(void) removeAndAddSprite:(ccTime) dt
 {
-	id sprite = [self getChildByTag:kTagSprite5];	
+	id sprite = [self childByTag:kTagSprite5];	
 	[sprite retain];
 	
 	[self removeChild:sprite cleanup:NO];
@@ -517,8 +517,8 @@ Class restartAction()
 //   color array and vertex array should be reindexed
 -(void) removeAndAddSprite:(ccTime) dt
 {
-	id batch = [self getChildByTag:kTagSpriteBatchNode];
-	id sprite = [batch getChildByTag:kTagSprite5];
+	id batch = [self childByTag:kTagSpriteBatchNode];
+	id sprite = [batch childByTag:kTagSprite5];
 	
 	[sprite retain];
 
@@ -573,7 +573,7 @@ Class restartAction()
 
 -(void) reorderSprite:(ccTime) dt
 {
-	id sprite = [self getChildByTag:kTagSprite1];
+	id sprite = [self childByTag:kTagSprite1];
 	
 	NSInteger z = [sprite zOrder];
 	
@@ -635,8 +635,8 @@ Class restartAction()
 
 -(void) reorderSprite:(ccTime) dt
 {
-	id batch = [self getChildByTag:kTagSpriteBatchNode];
-	id sprite = [batch getChildByTag:kTagSprite1];
+	id batch = [self childByTag:kTagSpriteBatchNode];
+	id sprite = [batch childByTag:kTagSprite1];
 	
 	NSInteger z = [sprite zOrder];
 	
@@ -888,10 +888,10 @@ Class restartAction()
 
 -(void) reorderSprites:(ccTime)dt
 {
-	id spritebatch = [self getChildByTag:kTagSprite1];
-	CCSprite *father = (CCSprite*)[spritebatch getChildByTag:kTagSprite2];
-	CCSprite *left = (CCSprite*)[father getChildByTag:kTagSpriteLeft];
-	CCSprite *right = (CCSprite*)[father getChildByTag:kTagSpriteRight];
+	id spritebatch = [self childByTag:kTagSprite1];
+	CCSprite *father = (CCSprite*)[spritebatch childByTag:kTagSprite2];
+	CCSprite *left = (CCSprite*)[father childByTag:kTagSpriteLeft];
+	CCSprite *right = (CCSprite*)[father childByTag:kTagSpriteRight];
 
 	int newZLeft = 1;
 	
@@ -1236,8 +1236,8 @@ Class restartAction()
 }
 -(void) flipSprites:(ccTime)dt
 {
-	CCSprite *sprite1 = (CCSprite*)[self getChildByTag:kTagSprite1];
-	CCSprite *sprite2 = (CCSprite*)[self getChildByTag:kTagSprite2];
+	CCSprite *sprite1 = (CCSprite*)[self childByTag:kTagSprite1];
+	CCSprite *sprite2 = (CCSprite*)[self childByTag:kTagSprite2];
 	
 	BOOL x = [sprite1 flipX];
 	BOOL y = [sprite2 flipY];
@@ -1279,9 +1279,9 @@ Class restartAction()
 }
 -(void) flipSprites:(ccTime)dt
 {
-	id batch = [self getChildByTag:kTagSpriteBatchNode];
-	CCSprite *sprite1 = (CCSprite*)[batch getChildByTag:kTagSprite1];
-	CCSprite *sprite2 = (CCSprite*)[batch getChildByTag:kTagSprite2];
+	id batch = [self childByTag:kTagSpriteBatchNode];
+	CCSprite *sprite1 = (CCSprite*)[batch childByTag:kTagSprite1];
+	CCSprite *sprite2 = (CCSprite*)[batch childByTag:kTagSprite2];
 	
 	BOOL x = [sprite1 flipX];
 	BOOL y = [sprite2 flipY];
@@ -1340,14 +1340,14 @@ Class restartAction()
 	// This change will affect every sprite that uses the same texture
 	// So sprite1 and sprite2 will be affected by this change
 	//
-	CCSprite *sprite = (CCSprite*) [self getChildByTag:kTagSprite1];
+	CCSprite *sprite = (CCSprite*) [self childByTag:kTagSprite1];
 	[sprite.texture setAliasTexParameters];
 }
 
 -(void) onExit
 {
 	// restore the tex parameter to AntiAliased.
-	CCSprite *sprite = (CCSprite*) [self getChildByTag:kTagSprite1];
+	CCSprite *sprite = (CCSprite*) [self childByTag:kTagSprite1];
 	[sprite.texture setAntiAliasTexParameters];
 	[super onExit];
 }
@@ -1392,14 +1392,14 @@ Class restartAction()
 -(void) onEnter
 {
 	[super onEnter];
-	CCSpriteBatchNode *batch = (CCSpriteBatchNode*) [self getChildByTag:kTagSpriteBatchNode];
+	CCSpriteBatchNode *batch = (CCSpriteBatchNode*) [self childByTag:kTagSpriteBatchNode];
 	[batch.texture setAliasTexParameters];
 }
 
 -(void) onExit
 {
 	// restore the tex parameter to AntiAliased.
-	CCSpriteBatchNode *batch = (CCSpriteBatchNode*) [self getChildByTag:kTagSpriteBatchNode];
+	CCSpriteBatchNode *batch = (CCSpriteBatchNode*) [self childByTag:kTagSpriteBatchNode];
 	[batch.texture setAntiAliasTexParameters];
 	[super onExit];
 }
@@ -1458,7 +1458,7 @@ Class restartAction()
 	int y = (idx/5) * 121;
 	
 	
-	CCNode *node = [self getChildByTag:kTagSpriteBatchNode];
+	CCNode *node = [self childByTag:kTagSpriteBatchNode];
 	CCSprite *sprite = [CCSprite spriteWithTexture:texture1 rect:CGRectMake(x,y,85,121)];
 	[node addChild:sprite];
 	
@@ -1490,7 +1490,7 @@ Class restartAction()
 #endif
 {
 
-	CCNode *node = [self getChildByTag:kTagSpriteBatchNode];
+	CCNode *node = [self childByTag:kTagSpriteBatchNode];
 	if( usingTexture1 ) {
 		for( CCSprite* sprite in node.children)
 			[sprite setTexture:texture2];
@@ -1550,7 +1550,7 @@ Class restartAction()
 	
 	CGPoint p = ccp( CCRANDOM_0_1() * s.width, CCRANDOM_0_1() * s.height);
 	
-	CCSpriteBatchNode *batch = (CCSpriteBatchNode*) [self getChildByTag:kTagSpriteBatchNode];
+	CCSpriteBatchNode *batch = (CCSpriteBatchNode*) [self childByTag:kTagSpriteBatchNode];
 	
 	int idx = CCRANDOM_0_1() * 1400 / 100;
 	int x = (idx%5) * 85;
@@ -1587,7 +1587,7 @@ Class restartAction()
 -(BOOL) ccMouseUp:(NSEvent *)event
 #endif
 {
-	CCSpriteBatchNode *batch = (CCSpriteBatchNode*) [self getChildByTag:kTagSpriteBatchNode];
+	CCSpriteBatchNode *batch = (CCSpriteBatchNode*) [self childByTag:kTagSpriteBatchNode];
 	
 	if( [batch texture] == texture1 )
 		[batch setTexture:texture2];
@@ -2768,8 +2768,8 @@ Class restartAction()
 
 -(void) reparentSprite:(ccTime)dt
 {
-	CCNode *p1 = [self getChildByTag:kTagNode];
-	CCNode *p2 = [self getChildByTag:kTagSpriteBatchNode];
+	CCNode *p1 = [self childByTag:kTagNode];
+	CCNode *p2 = [self childByTag:kTagSpriteBatchNode];
 	
 	NSMutableArray *array = [NSMutableArray arrayWithCapacity:30];
 	

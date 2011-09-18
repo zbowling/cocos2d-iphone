@@ -28,7 +28,7 @@
 	// The menu will be removed, but the instance will be alive
 	// and then a new node will be allocated occupying the memory.
 	// => CRASH BOOM BANG
-	CCNode *node = [self getChildByTag:localtag-1];
+	CCNode *node = [self childByTag:localtag-1];
 	NSLog(@"Menu: %@", node);
 	[self removeChild:node cleanup:NO];
 //	[self removeChildByTag:localtag-1 cleanup:NO];

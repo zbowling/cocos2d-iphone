@@ -27,7 +27,7 @@ enum {
 {
 	[super onEnter];
 	
-	id target = [self getChildByTag:kTagBackground];
+	id target = [self childByTag:kTagBackground];
 	
 	// To reuse a grid the grid size and the grid type must be the same.
 	// in this case:
@@ -58,7 +58,7 @@ enum {
 {
 	[super onEnter];
 	
-	id target = [self getChildByTag:kTagBackground];
+	id target = [self childByTag:kTagBackground];
 	
 	// To reuse a grid the grid size and the grid type must be the same.
 	// in this case:
@@ -95,9 +95,9 @@ enum {
 {
 	[super onEnter];
 	
-	id bg = [self getChildByTag:kTagBackground];
-	id target1 = [bg getChildByTag:kTagSprite1];
-	id target2 = [bg getChildByTag:kTagSprite2];	
+	id bg = [self childByTag:kTagBackground];
+	id target1 = [bg childByTag:kTagSprite1];
+	id target2 = [bg childByTag:kTagSprite2];	
 	
 	id waves = [CCWaves actionWithWaves:5 amplitude:20 horizontal:YES vertical:NO grid:ccg(15,10) duration:5];
 	id shaky = [CCShaky3D actionWithRange:4 shakeZ:NO grid:ccg(15,10) duration:5];
@@ -153,7 +153,7 @@ enum {
 					 [[effect copy] autorelease],
 					 nil];
 	
-	id bg = [self getChildByTag:kTagBackground];
+	id bg = [self childByTag:kTagBackground];
 	[bg runAction:stopEffect];
 }
 
@@ -176,7 +176,7 @@ enum {
 	id effect = [CCSequence actions:[CCDelayTime actionWithDuration:2.0f], [CCShaky3D actionWithRange:16 shakeZ:NO grid:ccg(5, 5) duration:5.0f], nil];
 
 	// cleanup
-	id bg = [self getChildByTag:kTagBackground];
+	id bg = [self childByTag:kTagBackground];
 	[self removeChild:bg cleanup:YES];
 
 	// background

@@ -1031,7 +1031,7 @@ Class restartAction()
 	// 4- 16-bit RGB565
 	[super onEnter];
 	
-	CCLabelTTF *label = (CCLabelTTF*) [self getChildByTag:kTagLabel];
+	CCLabelTTF *label = (CCLabelTTF*) [self childByTag:kTagLabel];
 	[label setColor:ccc3(16,16,255)];
 	
 	CGSize s = [[CCDirector sharedDirector] winSize];

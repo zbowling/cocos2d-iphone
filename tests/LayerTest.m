@@ -163,7 +163,7 @@ Class restartAction()
 	
 	CGSize newSize = CGSizeMake( abs( touchLocation.x - s.width/2)*2, abs(touchLocation.y - s.height/2)*2);
 	
-	CCLayerColor *l = (CCLayerColor*) [self getChildByTag:kTagLayer];
+	CCLayerColor *l = (CCLayerColor*) [self childByTag:kTagLayer];
 
 //	[l changeWidth:newSize.width];
 //	[l changeHeight:newSize.height];
@@ -278,7 +278,7 @@ Class restartAction()
 
 -(void) newBlend:(ccTime)dt
 {
-	CCLayerColor *layer = (CCLayerColor*) [self getChildByTag:kTagLayer];
+	CCLayerColor *layer = (CCLayerColor*) [self childByTag:kTagLayer];
 	if( layer.blendFunc.dst == GL_ZERO )
 		[layer setBlendFunc: (ccBlendFunc) { CC_BLEND_SRC, CC_BLEND_DST } ];
 	else
@@ -322,7 +322,7 @@ Class restartAction()
 
 -(void) toggleItem:(id)sender
 {
-	CCLayerGradient *gradient = (CCLayerGradient*) [self getChildByTag:kTagLayer];
+	CCLayerGradient *gradient = (CCLayerGradient*) [self childByTag:kTagLayer];
 	[gradient setCompressedInterpolation: ! gradient.compressedInterpolation];
 }
 
@@ -337,7 +337,7 @@ Class restartAction()
 	CGPoint diff = ccpSub( ccp(s.width/2,s.height/2), start);	
 	diff = ccpNormalize(diff);
 	
-	CCLayerGradient *gradient = (CCLayerGradient*) [self getChildByTag:1];
+	CCLayerGradient *gradient = (CCLayerGradient*) [self childByTag:1];
 
 	[gradient setVector:diff];
 }

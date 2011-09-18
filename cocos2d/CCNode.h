@@ -331,7 +331,7 @@ enum {
  @return returns a CCNode object
  @since v0.7.1
  */
--(CCNode*) getChildByTag:(NSInteger) tag;
+-(CCNode*) childByTag:(NSInteger) tag;
 
 /** Reorders a child according to a new z value.
  * The child MUST be already added.

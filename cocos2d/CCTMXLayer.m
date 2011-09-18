@@ -307,7 +307,7 @@ int compareInts (const void * a, const void * b);
 	// if GID == 0, then no tile is present
 	if( gid ) {
 		int z = pos.x + pos.y * layerSize_.width;
-		tile = (CCSprite*) [self getChildByTag:z];
+		tile = (CCSprite*) [self childByTag:z];
 		
 		// tile not created yet. create it
 		if( ! tile ) {
@@ -491,7 +491,7 @@ int compareInts (const void * a, const void * b)
 		else {
 
 			NSUInteger z = pos.x + pos.y * layerSize_.width;
-			id sprite = [self getChildByTag:z];
+			id sprite = [self childByTag:z];
 			if( sprite ) {
 				CGRect rect = [tileset_ rectForGID:gid];
 				[sprite setTextureRectInPixels:rect rotated:NO untrimmedSize:rect.size];
@@ -541,7 +541,7 @@ int compareInts (const void * a, const void * b)
 		ccCArrayRemoveValueAtIndex(atlasIndexArray_, atlasIndex);
 		
 		// remove it from sprites and/or texture atlas
-		id sprite = [self getChildByTag:z];
+		id sprite = [self childByTag:z];
 		if( sprite )
 			[super removeChild:sprite cleanup:YES];
 		else {

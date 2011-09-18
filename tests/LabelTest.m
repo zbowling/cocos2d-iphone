@@ -264,10 +264,10 @@ Class restartAction()
 {
 	time += dt;
 	NSString *string = [NSString stringWithFormat:@"%2.2f Test", time];
-	CCLabelAtlas *label1 = (CCLabelAtlas*) [self getChildByTag:kTagSprite1];
+	CCLabelAtlas *label1 = (CCLabelAtlas*) [self childByTag:kTagSprite1];
 	[label1 setString:string];
 
-	CCLabelAtlas *label2 = (CCLabelAtlas*) [self getChildByTag:kTagSprite2];
+	CCLabelAtlas *label2 = (CCLabelAtlas*) [self childByTag:kTagSprite2];
 	[label2 setString: [NSString stringWithFormat:@"%d", (int)time]];
 }
 
@@ -320,10 +320,10 @@ Class restartAction()
 {
 	time += dt;
 	NSString *string = [NSString stringWithFormat:@"%2.2f Test", time];
-	CCLabelAtlas *label1 = (CCLabelAtlas*) [self getChildByTag:kTagSprite1];
+	CCLabelAtlas *label1 = (CCLabelAtlas*) [self childByTag:kTagSprite1];
 	[label1 setString:string];
 	
-	CCLabelAtlas *label2 = (CCLabelAtlas*) [self getChildByTag:kTagSprite2];
+	CCLabelAtlas *label2 = (CCLabelAtlas*) [self childByTag:kTagSprite2];
 	[label2 setString: [NSString stringWithFormat:@"%d", (int)time]];	
 }
 
@@ -407,13 +407,13 @@ Class restartAction()
 	time += dt;
 	NSString *string = [NSString stringWithFormat:@"%2.2f Test j", time];
 	
-	CCLabelBMFont *label1 = (CCLabelBMFont*) [self getChildByTag:kTagBitmapAtlas1];
+	CCLabelBMFont *label1 = (CCLabelBMFont*) [self childByTag:kTagBitmapAtlas1];
 	[label1 setString:string];
 	
-	CCLabelBMFont *label2 = (CCLabelBMFont*) [self getChildByTag:kTagBitmapAtlas2];
+	CCLabelBMFont *label2 = (CCLabelBMFont*) [self childByTag:kTagBitmapAtlas2];
 	[label2 setString:string];
 	
-	CCLabelBMFont *label3 = (CCLabelBMFont*) [self getChildByTag:kTagBitmapAtlas3];
+	CCLabelBMFont *label3 = (CCLabelBMFont*) [self childByTag:kTagBitmapAtlas3];
 	[label3 setString:string];
 }
 
@@ -454,9 +454,9 @@ Class restartAction()
 		label.anchorPoint = ccp(0.5f, 0.5f);
 		
 		
-		CCSprite *BChar = (CCSprite*) [label getChildByTag:0];
-		CCSprite *FChar = (CCSprite*) [label getChildByTag:7];
-		CCSprite *AChar = (CCSprite*) [label getChildByTag:12];
+		CCSprite *BChar = (CCSprite*) [label childByTag:0];
+		CCSprite *FChar = (CCSprite*) [label childByTag:7];
+		CCSprite *AChar = (CCSprite*) [label childByTag:12];
 		
 		
 		id rotate = [CCRotateBy actionWithDuration:2 angle:360];
@@ -486,7 +486,7 @@ Class restartAction()
 		[self addChild:label2 z:0 tag:kTagBitmapAtlas2];
 		label2.position = ccp(s.width/2.0f, 80);
 		
-		CCSprite *lastChar = (CCSprite*) [label2 getChildByTag:3];
+		CCSprite *lastChar = (CCSprite*) [label2 childByTag:3];
 		[lastChar runAction: [[rot_4ever copy] autorelease]];
 		
 		[self schedule:@selector(step:) interval:0.1f];
@@ -508,7 +508,7 @@ Class restartAction()
 	time += dt;
 	NSString *string = [NSString stringWithFormat:@"%04.1f", time];
 	
-	CCLabelBMFont *label1 = (CCLabelBMFont*) [self getChildByTag:kTagBitmapAtlas2];
+	CCLabelBMFont *label1 = (CCLabelBMFont*) [self childByTag:kTagBitmapAtlas2];
 	[label1 setString:string];	
 }
 
@@ -818,9 +818,9 @@ Class restartAction()
 
 -(void) updateStrings:(ccTime)dt
 {
-	id<CCLabelProtocol> label1 = (id<CCLabelProtocol>) [self getChildByTag:kTagBitmapAtlas1];
-	id<CCLabelProtocol> label2 = (id<CCLabelProtocol>) [self getChildByTag:kTagBitmapAtlas2];
-	id<CCLabelProtocol> label3 = (id<CCLabelProtocol>) [self getChildByTag:kTagBitmapAtlas3];
+	id<CCLabelProtocol> label1 = (id<CCLabelProtocol>) [self childByTag:kTagBitmapAtlas1];
+	id<CCLabelProtocol> label2 = (id<CCLabelProtocol>) [self childByTag:kTagBitmapAtlas2];
+	id<CCLabelProtocol> label3 = (id<CCLabelProtocol>) [self childByTag:kTagBitmapAtlas3];
 	
 	if( ! setEmpty ) {
 		[label1 setString: @"not empty"];

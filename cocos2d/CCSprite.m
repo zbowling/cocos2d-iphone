@@ -227,9 +227,10 @@ struct transformValues_ {
 {
 	NSAssert(spriteFrame!=nil, @"Invalid spriteFrame for sprite");
 
-	id ret = [self initWithTexture:spriteFrame.texture rect:spriteFrame.rect];
-	[self setDisplayFrame:spriteFrame];
-	return ret;
+	self = [self initWithTexture:spriteFrame.texture rect:spriteFrame.rect];
+    if (self)
+        [self setDisplayFrame:spriteFrame];
+	return self;
 }
 
 -(id)initWithSpriteFrameName:(NSString*)spriteFrameName
@@ -255,19 +256,21 @@ struct transformValues_ {
 
 -(id) initWithBatchNode:(CCSpriteBatchNode*)batchNode rect:(CGRect)rect
 {
-	id ret = [self initWithTexture:batchNode.texture rect:rect];
-	[self useBatchNode:batchNode];
-	
-	return ret;
+	self= [self initWithTexture:batchNode.texture rect:rect];
+    if (self){
+        [self useBatchNode:batchNode];
+    }
+	return self;
 }
 
 -(id) initWithBatchNode:(CCSpriteBatchNode*)batchNode rectInPixels:(CGRect)rect
 {
-	id ret = [self initWithTexture:batchNode.texture];
-	[self setTextureRectInPixels:rect rotated:NO untrimmedSize:rect.size];
-	[self useBatchNode:batchNode];
-	
-	return ret;
+	self = [self initWithTexture:batchNode.texture];
+    if (self){
+        [self setTextureRectInPixels:rect rotated:NO untrimmedSize:rect.size];
+        [self useBatchNode:batchNode];
+    }
+	return self;
 }
 
 - (NSString*) description

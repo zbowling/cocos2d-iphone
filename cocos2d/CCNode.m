@@ -365,7 +365,7 @@
 	return camera_;
 }
 
--(CCNode*) getChildByTag:(NSInteger) aTag
+-(CCNode*) childByTag:(NSInteger) aTag
 {
 	NSAssert( aTag != kCCNodeTagInvalid, @"Invalid tag");
 	
@@ -437,7 +437,7 @@
 {
 	NSAssert( aTag != kCCNodeTagInvalid, @"Invalid tag");
 	
-	CCNode *child = [self getChildByTag:aTag];
+	CCNode *child = [self childByTag:aTag];
 	
 	if (child == nil)
 		CCLOG(@"cocos2d: removeChildByTag: child not found!");

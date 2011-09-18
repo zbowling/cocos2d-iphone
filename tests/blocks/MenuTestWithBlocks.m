@@ -123,7 +123,7 @@ enum {
 -(void) alignMenusH
 {
 	for(int i=0;i<2;i++) {
-		CCMenu *menu = (CCMenu*)[self getChildByTag:100+i];
+		CCMenu *menu = (CCMenu*)[self childByTag:100+i];
 		menu.position = centeredMenu;
 		if(i==0) {
 			// TIP: if no padding, padding = 5
@@ -143,7 +143,7 @@ enum {
 -(void) alignMenusV
 {
 	for(int i=0;i<2;i++) {
-		CCMenu *menu = (CCMenu*)[self getChildByTag:100+i];
+		CCMenu *menu = (CCMenu*)[self childByTag:100+i];
 		menu.position = centeredMenu;
 		if(i==0) {
 			// TIP: if no padding, padding = 5

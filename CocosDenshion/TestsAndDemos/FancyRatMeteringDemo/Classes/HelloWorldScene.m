@@ -76,7 +76,7 @@ enum {
 - (void) avAvgPowerLevelDidChange:(float) level channel:(ushort) theChannel
 {
 	//	Just change the cocos2d logo scale for one channel
-		[self getChildByTag:kTagHead].scale = 1 + level*.5f;
+		[self childByTag:kTagHead].scale = 1 + level*.5f;
 }
 
 // on "dealloc" you need to release all your retained objects

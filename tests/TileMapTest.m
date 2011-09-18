@@ -167,7 +167,7 @@ Class restartAction()
 
 -(BOOL) ccMouseDragged:(NSEvent *)event
 {
-	CCNode *node = [self getChildByTag:kTagTileMap];
+	CCNode *node = [self childByTag:kTagTileMap];
 	CGPoint currentPos = [node position];
 	[node setPosition: ccpAdd(currentPos, CGPointMake( event.deltaX, -event.deltaY) )];
 
@@ -287,7 +287,7 @@ Class restartAction()
 	//   The only limitation is that you cannot change an empty, or assign an empty tile to a tile
 	//   The value 0 not rendered so don't assign or change a tile with value 0
 
-	CCTileMapAtlas *tilemap = (CCTileMapAtlas*) [self getChildByTag:kTagTileMap];
+	CCTileMapAtlas *tilemap = (CCTileMapAtlas*) [self childByTag:kTagTileMap];
 	
 	//
 	// For example you can iterate over all the tiles
@@ -470,7 +470,7 @@ Class restartAction()
 {
 	[self unschedule:_cmd];
 
-	CCTMXTiledMap *map = (CCTMXTiledMap*) [self getChildByTag:kTagTileMap];
+	CCTMXTiledMap *map = (CCTMXTiledMap*) [self childByTag:kTagTileMap];
 	CCTMXLayer *layer = [map layerNamed:@"Layer 0"];
 	CGSize s = [layer layerSize];
 
@@ -706,8 +706,8 @@ Class restartAction()
 
 -(void) updateCol:(ccTime)dt
 {	
-	id map = [self getChildByTag:kTagTileMap];
-	CCTMXLayer *layer = (CCTMXLayer*) [map getChildByTag:0];
+	id map = [self childByTag:kTagTileMap];
+	CCTMXLayer *layer = (CCTMXLayer*) [map childByTag:0];
 		
 	NSLog(@"++++atlas quantity: %u", (unsigned int) [[layer textureAtlas] totalQuads]);
 	NSLog(@"++++children: %u", (unsigned int) [[layer children] count]);
@@ -723,8 +723,8 @@ Class restartAction()
 {
 //	[self unschedule:_cmd];
 	
-	id map = [self getChildByTag:kTagTileMap];
-	CCTMXLayer *layer = (CCTMXLayer*) [map getChildByTag:0];
+	id map = [self childByTag:kTagTileMap];
+	CCTMXLayer *layer = (CCTMXLayer*) [map childByTag:0];
 	
 	CGSize s = [layer layerSize];
 	for( int x=0; x<s.width;x++) {
@@ -738,8 +738,8 @@ Class restartAction()
 {
 	[self unschedule:_cmd];
 
-	id map = [self getChildByTag:kTagTileMap];
-	CCTMXLayer *layer = (CCTMXLayer*) [map getChildByTag:0];
+	id map = [self childByTag:kTagTileMap];
+	CCTMXLayer *layer = (CCTMXLayer*) [map childByTag:0];
 	CGSize s = [layer layerSize];
 	for( int y=0; y< s.height; y++ ) {
 		[layer removeTileAt:ccp(5,y)];
@@ -816,7 +816,7 @@ Class restartAction()
 
 -(void) draw
 {
-	CCTMXTiledMap *map = (CCTMXTiledMap*) [self getChildByTag:kTagTileMap];
+	CCTMXTiledMap *map = (CCTMXTiledMap*) [self childByTag:kTagTileMap];
 	CCTMXObjectGroup *group = [map objectGroupNamed:@"Object Group 1"];
 	for( NSDictionary *dict in group.objects) {
 		int x = [[dict objectForKey:@"x"] intValue];
@@ -871,7 +871,7 @@ Class restartAction()
 
 -(void) draw
 {
-	CCTMXTiledMap *map = (CCTMXTiledMap*) [self getChildByTag:kTagTileMap];
+	CCTMXTiledMap *map = (CCTMXTiledMap*) [self childByTag:kTagTileMap];
 	CCTMXObjectGroup *group = [map objectGroupNamed:@"Object Group 1"];
 	for( NSDictionary *dict in group.objects) {
 		int x = [[dict objectForKey:@"x"] intValue];
@@ -927,7 +927,7 @@ Class restartAction()
 
 -(void) draw
 {
-	CCTMXTiledMap *map = (CCTMXTiledMap*) [self getChildByTag:kTagTileMap];
+	CCTMXTiledMap *map = (CCTMXTiledMap*) [self childByTag:kTagTileMap];
 	CCTMXObjectGroup *group = [map objectGroupNamed:@"Object Group 1"];
 	for( NSDictionary *dict in group.objects) {
 		int x = [[dict objectForKey:@"x"] intValue];
@@ -1068,7 +1068,7 @@ Class restartAction()
 -(void) repositionSprite:(ccTime)dt
 {
 	CGPoint p = [tamara positionInPixels];
-	CCNode *map = [self getChildByTag:kTagTileMap];
+	CCNode *map = [self childByTag:kTagTileMap];
 	
 	// there are only 4 layers. (grass and 3 trees layers)
 	// if tamara < 48, z=4
@@ -1132,7 +1132,7 @@ Class restartAction()
 -(void) repositionSprite:(ccTime)dt
 {
 	CGPoint p = [tamara positionInPixels];
-	CCNode *map = [self getChildByTag:kTagTileMap];
+	CCNode *map = [self childByTag:kTagTileMap];
 	
 	// there are only 4 layers. (grass and 3 trees layers)
 	// if tamara < 81, z=4
