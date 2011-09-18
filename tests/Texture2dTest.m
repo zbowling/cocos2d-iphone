@@ -18,7 +18,10 @@ enum {
 
 static int sceneIdx=-1;
 static NSString *transitions[] = {
-	
+
+	@"TexturePVRRGB565",
+	@"TexturePVRRGB888",
+
 	@"TextureAlias",
 	@"TextureMipMap",
 	@"TexturePVRMipMap",
@@ -37,6 +40,7 @@ static NSString *transitions[] = {
 	@"TexturePVRRGBA4444CCZ",
 	@"TexturePVRRGBA5551",
 	@"TexturePVRRGB565",
+	@"TexturePVRRGB888",
 	@"TexturePVRA8",
 	@"TexturePVRI8",
 	@"TexturePVRAI88",
@@ -57,6 +61,9 @@ static NSString *transitions[] = {
 	@"TextureGlRepeat",
 	@"TextureSizeTest",
 	@"TextureCache1",
+	@"TextureDrawAtPoint",
+	@"TextureDrawInRect",
+
 	@"FileUtilsTest",
 };
 
@@ -768,6 +775,31 @@ Class restartAction()
 -(NSString *) title
 {
 	return @"PVR + RGB 565 Test";
+}
+@end
+
+#pragma mark -
+#pragma mark TexturePVR RGB888
+
+// Image generated using PVRTexTool:
+// http://www.imgtec.com/powervr/insider/powervr-pvrtextool.asp
+
+@implementation TexturePVRRGB888
+-(void) onEnter
+{
+	[super onEnter];
+	CGSize s = [[CCDirector sharedDirector] winSize];
+	
+	CCSprite *img = [CCSprite spriteWithFile:@"test_image_rgb888.pvr"];
+	img.position = ccp( s.width/2.0f, s.height/2.0f);
+	[self addChild:img];
+	[[CCTextureCache sharedTextureCache] dumpCachedTextureInfo];
+	
+}
+
+-(NSString *) title
+{
+	return @"PVR + RGB 888 Test";
 }
 @end
 
@@ -1688,6 +1720,97 @@ Class restartAction()
 	return @"4 images should appear: alias, antialias, alias, antilias";
 }
 @end
+
+#pragma mark -
+#pragma mark TextureDrawAtPoint
+
+@implementation TextureDrawAtPoint
+-(id) init
+{	
+	if ((self=[super init]) ) {
+		
+		tex1_ = [[CCTextureCache sharedTextureCache] addImage:@"grossinis_sister1.png"];
+		tex2_ = [[CCTextureCache sharedTextureCache] addImage:@"grossinis_sister2.png"];
+		
+		[tex1_ retain];
+		[tex2_ retain];
+		
+	}
+	return self;
+}
+-(void) dealloc
+{
+	[tex1_ release];
+	[tex2_ release];
+}
+-(void) draw
+{
+	[super draw];
+	
+	CGSize s = [[CCDirector sharedDirector] winSize];
+	
+	[tex1_ drawAtPoint:ccp(s.width/2-50, s.height/2 - 50)];
+	[tex2_ drawAtPoint:ccp(s.width/2+50, s.height/2 - 50)];
+
+}
+
+-(NSString*) title
+{
+	return @"CCTexture2D: drawAtPoint";
+}
+-(NSString *) subtitle
+{
+	return @"draws 2 textures using drawAtPoint";
+}
+@end
+
+#pragma mark -
+#pragma mark TextureDrawInRect
+
+
+@implementation TextureDrawInRect
+-(id) init
+{	
+	if ((self=[super init]) ) {
+		
+		tex1_ = [[CCTextureCache sharedTextureCache] addImage:@"grossinis_sister1.png"];
+		tex2_ = [[CCTextureCache sharedTextureCache] addImage:@"grossinis_sister2.png"];
+		
+		[tex1_ retain];
+		[tex2_ retain];
+		
+	}
+	return self;
+}
+-(void) dealloc
+{
+	[tex1_ release];
+	[tex2_ release];
+}
+-(void) draw
+{
+	[super draw];
+	
+	CGSize s = [[CCDirector sharedDirector] winSize];
+	
+	CGRect rect1 = CGRectMake( s.width/2 - 80, 20, tex1_.contentSize.width * 0.5f, tex1_.contentSize.height *2 );
+	CGRect rect2 = CGRectMake( s.width/2 + 80, s.height/2, tex1_.contentSize.width * 2, tex1_.contentSize.height * 0.5f );
+	
+	[tex1_ drawInRect:rect1];
+	[tex2_ drawInRect:rect2];
+	
+}
+
+-(NSString*) title
+{
+	return @"CCTexture2D: drawInRect";
+}
+-(NSString *) subtitle
+{
+	return @"draws 2 textures using drawInRect";
+}
+@end
+
 
 #pragma mark - FileUtilsTest
 
